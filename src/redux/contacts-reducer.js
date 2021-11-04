@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import types from "./contacts-types";
 import { createReducer } from "@reduxjs/toolkit";
 import actions from "./contacts-actions";
 
@@ -22,27 +21,6 @@ const items = createReducer(initialState, {
     state.filter((contact) => contact.id !== payload),
 });
 
-// const items = (state = initialState, { type, payload }) => {
-//   switch (type) {
-//     case types.ADD:
-//       if (state.some((contact) => contact.name === payload.name)) {
-//         alert(payload.name + " is already in contacts");
-//         return state;
-//       }
-//       const newContacts = [...state, payload];
-
-//       return newContacts;
-
-//     case types.DELETE:
-//       const newContactsDelete = state.filter(
-//         (contact) => contact.id !== payload
-//       );
-
-//       return newContactsDelete;
-//     default:
-//       return state;
-//   }
-// };
 const filter = createReducer("", {
   [actions.changeFilter]: (_, { payload }) => payload,
 });
